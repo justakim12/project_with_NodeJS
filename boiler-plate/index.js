@@ -1,7 +1,14 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const { User } = require('./models/user')
+const bodyParser = require('body-parser')
 const dotenv = require('dotenv')
+
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
 dotenv.config()
 
 const password = process.env.DB_PASSWORD
@@ -14,6 +21,18 @@ mongoose.connect(`mongodb+srv://david-kim:${password}@boilerplate.p2j4o.mongodb.
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
+})
+
+app.post('/register', (req, res) => {
+
+  const user = new User(req.body)
+
+  user.save((err, userInfo) => {
+    if(err) return res.json({success: false, err})
+    return res.status(200).json({
+      success: true
+    })
+  })
 })
 
 app.listen(port, () => {
