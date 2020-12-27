@@ -10,7 +10,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 dotenv.config()
-
 const password = process.env.DB_PASSWORD
 
 const mongoose = require('mongoose')
@@ -19,20 +18,21 @@ mongoose.connect(`mongodb+srv://david-kim:${password}@boilerplate.p2j4o.mongodb.
 }).then(() => console.log('MongoDB Connected!'))
   .catch(err => console.log(err))
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
 app.post('/register', (req, res) => {
-
   const user = new User(req.body)
 
   user.save((err, userInfo) => {
-    if(err) return res.json({success: false, err})
+    if(err) return res.json({
+      success: false, err
+    })
     return res.status(200).json({
       success: true
     })
   })
+})
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
 })
 
 app.listen(port, () => {
