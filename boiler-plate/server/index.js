@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 5000
 const { User } = require('./models/user')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
@@ -86,9 +86,12 @@ app.get('/api/users/logout', auth, (req, res) => {
   })
 })
 
-
 app.get('/', (req, res) => {
   res.send('Hello World!')
+})
+
+app.get('/api/hello', (req, res) => {
+  res.send("Connected to server!")
 })
 
 app.listen(port, () => {
