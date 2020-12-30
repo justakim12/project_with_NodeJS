@@ -6,6 +6,7 @@ import {loginUser} from '../../../_actions/user_action'
 function LoginPage(props) {
 
     const dispatch = useDispatch()
+    
     const [Email, setEmail] = useState("")
     const [Password, setPassword] = useState("")
 
