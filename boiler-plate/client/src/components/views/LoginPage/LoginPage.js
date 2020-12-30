@@ -1,3 +1,4 @@
+import Axios from 'axios'
 import React, {useState} from 'react'
 
 function LoginPage() {
@@ -16,8 +17,15 @@ function LoginPage() {
     const onSubmitHandler = (event) => {
         event.preventDefault()
 
-        console.log('Email', Email)
-        console.log('Password', Password)
+        let body = {
+            email: Email,
+            password: Password
+        }
+
+        Axios.post('/api/user/login', body)
+        .then(response => {
+
+        })
     }
 
 
