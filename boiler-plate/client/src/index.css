@@ -18,3 +18,13 @@
   background-color: grey;
   font-size: 30px;
 }
+
+.register-page {
+  width: 100vw;
+  height: 96vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: grey;
+  font-size: 30px;
+}

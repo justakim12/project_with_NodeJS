@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const port = 5000
 const { User } = require('./models/user')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
@@ -94,6 +93,7 @@ app.get('/api/hello', (req, res) => {
   res.send("Connected to server!")
 })
 
+const port = 4200
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
