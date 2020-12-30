@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import axios from 'axios';
+import '../../../App.css';
 
 function LandingPage() {
 
@@ -9,9 +10,9 @@ function LandingPage() {
     }, [])
 
     return (
-        <div>
-            LandingPage
-        </div>
+        <div className="landing-page">
+            Landing Page
+        </div>      
     )
 }
 
