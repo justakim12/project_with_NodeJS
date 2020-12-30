@@ -5,7 +5,7 @@ import {
 
 export function loginUser(dataToSubmit) {
 
-    const request = Axios.post('/api/user/login', body)
+    const request = Axios.post('/api/user/login', dataToSubmit)
         .then(response => response.data)
 
     return {
